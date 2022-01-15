@@ -2,10 +2,10 @@ package com.donation.blood.entities;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.persistence.Entity;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +34,7 @@ public class Patient {
     @Field("eligible_to_donate")
     private Boolean eligibleToDonate;
 
-    @Field("address")
+    @DBRef
+    @Field("addresses")
     private List<PatientAddress> addresses;
 }
