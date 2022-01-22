@@ -14,10 +14,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>blood</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
         <java.version>11</java.version>
         <mapstruts.version>1.4.2.Final</mapstruts.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -26,6 +28,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <dependency>
