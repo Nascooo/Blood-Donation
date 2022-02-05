@@ -1,10 +1,8 @@
 package com.donation.blood.dto;
 
-import com.donation.blood.entities.Authorities;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 public class UserDTO {
