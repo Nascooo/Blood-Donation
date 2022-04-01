@@ -11,4 +11,6 @@ public interface PatientMapper {
     PatientMapper INSTANCE = Mappers.getMapper(PatientMapper.class);
 
     PatientDTO fromEntityToDTO(Patient patient);
+
+    Patient fromDTOtoEntity(PatientDTO patientDTO);
 }

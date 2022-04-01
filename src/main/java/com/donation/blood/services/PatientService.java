@@ -23,4 +23,9 @@ public class PatientService {
         }
         return patientDTO;
     }
+
+    public PatientDTO savePatient(PatientDTO patientDTO) {
+        Patient patient = PatientMapper.INSTANCE.fromDTOtoEntity(patientDTO);
+        return  PatientMapper.INSTANCE.fromEntityToDTO(patientRepo.save(patient));
+    }
 }
