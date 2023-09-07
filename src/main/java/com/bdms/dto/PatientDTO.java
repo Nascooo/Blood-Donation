@@ -24,5 +24,5 @@ public class PatientDTO {
 
 	private String contactPhone;
 
-	private List<PatientAddressDTO> addresses;
+	private List<PatientAddressDTO> address;
 }
