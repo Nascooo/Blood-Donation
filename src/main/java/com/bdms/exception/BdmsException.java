@@ -2,14 +2,16 @@ package com.bdms.exception;
 
 import org.springframework.http.HttpStatus;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class BdmsException extends RuntimeException {
 
-	private String message;
+	private final String message;
 
-	private HttpStatus code;
+	private final HttpStatus code;
 
 	public BdmsException(String message, HttpStatus code) {
 		super(message);
