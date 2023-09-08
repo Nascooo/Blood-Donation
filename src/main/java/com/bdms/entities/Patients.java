@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,7 +26,7 @@ public class Patients {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "patient_id")
-	private Long patientId;
+	private Long id;
 
 	@Column(name = "first_name", nullable = false)
 	private String firstName;
@@ -48,6 +49,7 @@ public class Patients {
 	@Column(name = "contact_phone")
 	private String contactPhone;
 
-	@OneToMany(mappedBy = "patient", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "patient_id")
 	private List<PatientAddress> address;
 }
