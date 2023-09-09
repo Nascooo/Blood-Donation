@@ -20,7 +20,7 @@ public class User {
 	private Long userId;
 
 	@Column(name = "username", nullable = false)
-	private String username;
+	private String userName;
 
 	@Column(name = "password", nullable = false)
 	private String password;

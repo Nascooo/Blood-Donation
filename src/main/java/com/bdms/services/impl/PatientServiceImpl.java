@@ -1,5 +1,7 @@
 package com.bdms.services.impl;
 
+import static com.bdms.constant.BdmsConstants.NOT_EXIST;
+
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -13,18 +15,16 @@ import com.bdms.mappers.PatientMapper;
 import com.bdms.repos.PatientRepository;
 import com.bdms.services.PatientService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 @Transactional(readOnly = true)
 public class PatientServiceImpl implements PatientService {
 
 	private PatientRepository patientRepository;
 
 	private PatientMapper patientMapper;
-
-	public PatientServiceImpl(PatientRepository patientRepository, PatientMapper patientMapper) {
-		this.patientRepository = patientRepository;
-		this.patientMapper = patientMapper;
-	}
 
 	@Override
 	@Transactional
@@ -37,6 +37,6 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public PatientDTO getPatientById(Long patientId) {
 		Optional<Patients> optionalPatient = patientRepository.findById(patientId);
-		return optionalPatient.map(patientMapper::fromEntityToDTO).orElseThrow(() -> new BdmsException("NOT_CREATED" , HttpStatus.NOT_FOUND));
+		return optionalPatient.map(patientMapper::fromEntityToDTO).orElseThrow(() -> new BdmsException(NOT_EXIST, HttpStatus.NOT_FOUND));
 	}
 }
